@@ -1,8 +1,11 @@
 {
   "name": "eslint-cli",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "The local eslint executor.",
-  "files": ["bin", "lib"],
+  "files": [
+    "bin",
+    "lib"
+  ],
   "bin": {
     "eslint": "bin/eslint-cli.js",
     "eslint-cli": "bin/eslint-cli.js"
