@@ -7,8 +7,8 @@
     "lib"
   ],
   "bin": {
-    "eslint": "bin/eslint-cli.js",
-    "eslint-cli": "bin/eslint-cli.js"
+    "eslint": "bin/eslint.js",
+    "eslint-cli": "bin/eslint.js"
   },
   "scripts": {
     "postversion": "git push && git push --tags",
