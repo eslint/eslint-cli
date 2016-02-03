@@ -1,7 +1,8 @@
 # eslint-cli
 
+[![npm version](https://img.shields.io/npm/v/eslint-cli.svg)](https://www.npmjs.com/package/eslint-cli)
+[![Downloads/month](https://img.shields.io/npm/dm/eslint-cli.svg)](https://www.npmjs.com/package/eslint-cli)
 [![Dependency Status](https://david-dm.org/mysticatea/eslint-cli.svg)](https://david-dm.org/mysticatea/eslint-cli)
-[![npm version](https://badge.fury.io/js/eslint-cli.svg)](http://badge.fury.io/js/eslint-cli)
 
 The local [eslint](https://github.com/eslint/eslint) executor.
 
