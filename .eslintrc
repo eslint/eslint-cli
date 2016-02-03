@@ -1,4 +1,12 @@
 {
     "extends": "mysticatea/es5",
-    "env": {"node": true}
+    "plugins": ["node"],
+    "env": {
+        "node": true
+    },
+    "rules": {
+        "node/no-missing-require": 2,
+        "node/no-unpublished-require": 2,
+        "node/shebang": 2
+    }
 }

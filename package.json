@@ -10,18 +10,20 @@
     "eslint": "bin/eslint-cli.js",
     "eslint-cli": "bin/eslint-cli.js"
   },
+  "scripts": {
+    "postversion": "git push && git push --tags",
+    "lint": "eslint bin lib"
+  },
   "dependencies": {
     "chalk": "^1.1.1",
     "debug": "^2.2.0",
-    "resolve": "^1.1.6"
+    "resolve": "^1.1.7"
   },
   "devDependencies": {
-    "eslint": "^1.5.0",
-    "eslint-config-mysticatea": "^1.4.1",
-    "eslint-plugin-mysticatea": "^1.0.2"
-  },
-  "scripts": {
-    "postversion": "git push && git push --tags"
+    "eslint": "^1.10.3",
+    "eslint-config-mysticatea": "^1.9.0",
+    "eslint-plugin-mysticatea": "^1.0.2",
+    "eslint-plugin-node": "^0.6.2"
   },
   "repository": {
     "type": "git",
