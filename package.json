@@ -20,10 +20,8 @@
     "resolve": "^1.1.7"
   },
   "devDependencies": {
-    "eslint": "^1.10.3",
-    "eslint-config-mysticatea": "^1.9.0",
-    "eslint-plugin-mysticatea": "^1.0.2",
-    "eslint-plugin-node": "^0.6.2"
+    "eslint": "^2.10.2",
+    "eslint-config-mysticatea": "^3.0.0"
   },
   "repository": {
     "type": "git",

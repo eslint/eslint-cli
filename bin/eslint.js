@@ -1,11 +1,9 @@
 #!/usr/bin/env node
-
 /**
  * @author Toru Nagashima
  * @copyright 2015 Toru Nagashima. All rights reserved.
  * See LICENSE file in root directory for full license.
  */
-
 "use strict";
 
 //------------------------------------------------------------------------------
@@ -31,7 +29,7 @@ function getLocalEslint(basedir) {
     try {
         indexPath = resolve("eslint", {basedir: basedir});
     }
-    catch (err) {
+    catch (_err) {
         debug("NOT FOUND", "\"eslint\"");
         return null;
     }
@@ -44,7 +42,7 @@ function getLocalEslint(basedir) {
 //------------------------------------------------------------------------------
 // Main
 //------------------------------------------------------------------------------
-/* eslint-disable no-process, no-console */
+/*eslint-disable no-process-exit, no-console */
 
 var cwd = process.cwd();
 
