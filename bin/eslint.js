@@ -10,7 +10,6 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var path = require("path")
 var debug = require("debug")("eslint-cli")
 var resolve = require("resolve").sync
 
@@ -25,18 +24,15 @@ var resolve = require("resolve").sync
  * @returns {string|null} The path of a local eslint module.
  */
 function getLocalEslint(basedir) {
-    var indexPath = null
     try {
-        indexPath = resolve("eslint", {basedir: basedir})
+        var binPath = resolve("eslint/bin/eslint.js", {basedir: basedir})
+        debug("FOUND", binPath)
+        return binPath
     }
     catch (_err) {
-        debug("NOT FOUND", "\"eslint\"")
+        debug("NOT FOUND", "'eslint'")
         return null
     }
-
-    var binPath = path.resolve(path.dirname(indexPath), "..", "bin", "eslint.js")
-    debug("FOUND", binPath)
-    return binPath
 }
 
 //------------------------------------------------------------------------------
