@@ -4,15 +4,15 @@
  * @copyright 2015 Toru Nagashima. All rights reserved.
  * See LICENSE file in root directory for full license.
  */
-"use strict";
+"use strict"
 
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
 
-var path = require("path");
-var debug = require("debug")("eslint-cli");
-var resolve = require("resolve").sync;
+var path = require("path")
+var debug = require("debug")("eslint-cli")
+var resolve = require("resolve").sync
 
 //------------------------------------------------------------------------------
 // Helpers
@@ -25,18 +25,18 @@ var resolve = require("resolve").sync;
  * @returns {string|null} The path of a local eslint module.
  */
 function getLocalEslint(basedir) {
-    var indexPath = null;
+    var indexPath = null
     try {
-        indexPath = resolve("eslint", {basedir: basedir});
+        indexPath = resolve("eslint", {basedir: basedir})
     }
     catch (_err) {
-        debug("NOT FOUND", "\"eslint\"");
-        return null;
+        debug("NOT FOUND", "\"eslint\"")
+        return null
     }
 
-    var binPath = path.resolve(path.dirname(indexPath), "..", "bin", "eslint.js");
-    debug("FOUND", binPath);
-    return binPath;
+    var binPath = path.resolve(path.dirname(indexPath), "..", "bin", "eslint.js")
+    debug("FOUND", binPath)
+    return binPath
 }
 
 //------------------------------------------------------------------------------
@@ -44,19 +44,19 @@ function getLocalEslint(basedir) {
 //------------------------------------------------------------------------------
 /*eslint-disable no-process-exit, no-console */
 
-var cwd = process.cwd();
+var cwd = process.cwd()
 
-debug("START", process.argv);
-debug("ROOT", cwd);
+debug("START", process.argv)
+debug("ROOT", cwd)
 
-var binPath = getLocalEslint(cwd) || require("../lib/get-bin-eslint-js")(cwd);
+var binPath = getLocalEslint(cwd) || require("../lib/get-bin-eslint-js")(cwd)
 if (binPath != null) {
-    require(binPath);
+    require(binPath)
 }
 else {
     console.error(require("chalk").red.bold(
         "Cannot find local ESLint!\n" +
         "Please install ESLint by `npm install eslint --save-dev`.\n"
-    ));
-    process.exit(1);
+    ))
+    process.exit(1)
 }
