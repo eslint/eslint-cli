@@ -38,7 +38,6 @@ function getLocalEslint(basedir) {
 //------------------------------------------------------------------------------
 // Main
 //------------------------------------------------------------------------------
-/*eslint-disable no-process-exit, no-console */
 
 var cwd = process.cwd()
 
@@ -50,9 +49,10 @@ if (binPath != null) {
     require(binPath)
 }
 else {
+    //eslint-disable-next-line no-console
     console.error(require("chalk").red.bold(
         "Cannot find local ESLint!\n" +
         "Please install ESLint by `npm install eslint --save-dev`.\n"
     ))
-    process.exit(1)
+    process.exitCode = 1
 }
