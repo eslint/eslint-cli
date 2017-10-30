@@ -25,7 +25,7 @@ var resolve = require("resolve").sync
  */
 function getLocalEslint(basedir) {
     try {
-        var binPath = resolve("eslint/bin/eslint.js", {basedir: basedir})
+        var binPath = resolve("eslint/bin/eslint.js", { basedir: basedir })
         debug("FOUND", binPath)
         return binPath
     }
