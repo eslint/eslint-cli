@@ -2,6 +2,9 @@
   "name": "eslint-cli",
   "version": "1.1.1",
   "description": "The local eslint executor.",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "files": [
     "bin",
     "lib"

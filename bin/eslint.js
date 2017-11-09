@@ -10,8 +10,8 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var debug = require("debug")("eslint-cli")
-var resolve = require("resolve").sync
+const debug = require("debug")("eslint-cli")
+const resolve = require("resolve").sync
 
 //------------------------------------------------------------------------------
 // Helpers
@@ -25,7 +25,7 @@ var resolve = require("resolve").sync
  */
 function getLocalEslint(basedir) {
     try {
-        var binPath = resolve("eslint/bin/eslint.js", { basedir: basedir })
+        const binPath = resolve("eslint/bin/eslint.js", { basedir })
         debug("FOUND", binPath)
         return binPath
     }
@@ -39,12 +39,12 @@ function getLocalEslint(basedir) {
 // Main
 //------------------------------------------------------------------------------
 
-var cwd = process.cwd()
+const cwd = process.cwd()
 
 debug("START", process.argv)
 debug("ROOT", cwd)
 
-var binPath = getLocalEslint(cwd) || require("../lib/get-bin-eslint-js")(cwd)
+const binPath = getLocalEslint(cwd) || require("../lib/get-bin-eslint-js")(cwd)
 if (binPath != null) {
     require(binPath)
 }
