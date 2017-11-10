@@ -18,8 +18,15 @@
     "lint": "eslint bin lib"
   },
   "dependencies": {
+    "cross-spawn": "^5.1.0",
     "debug": "^3.1.0",
-    "resolve": "^1.3.3"
+    "inquirer": "^3.3.0",
+    "js-yaml": "^3.10.0",
+    "json-stable-stringify": "^1.0.1",
+    "lodash": "^4.17.4",
+    "pkg-up": "^2.0.0",
+    "resolve": "^1.3.3",
+    "semver": "^5.4.1"
   },
   "devDependencies": {
     "eslint": "^4.10.0",
