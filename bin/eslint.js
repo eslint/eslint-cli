@@ -18,9 +18,9 @@ if (binPath != null) {
 }
 else {
     //eslint-disable-next-line no-console
-    console.error(require("chalk").red.bold(
-        "Cannot find local ESLint!\n" +
-        "Please install ESLint by `npm install eslint --save-dev`.\n"
-    ))
+    console.error(`
+Could not find local ESLint.
+Please install ESLint by 'npm install --save-dev eslint'.
+`)
     process.exitCode = 1
 }
