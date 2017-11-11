@@ -6,7 +6,12 @@
 "use strict"
 
 const debug = require("debug")("eslint-cli")
+const debugMode = process.argv.indexOf("--debug") !== -1
 const cwd = process.cwd()
+
+if (debugMode) {
+    require("debug").enable("eslint-cli")
+}
 
 debug("START", process.argv)
 debug("ROOT", cwd)
