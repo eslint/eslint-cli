@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/eslint-cli.svg)](https://www.npmjs.com/package/eslint-cli)
 [![Downloads/month](https://img.shields.io/npm/dm/eslint-cli.svg)](http://www.npmtrends.com/eslint-cli)
-[![Dependency Status](https://david-dm.org/mysticatea/eslint-cli.svg)](https://david-dm.org/mysticatea/eslint-cli)
+[![Dependency Status](https://david-dm.org/eslint/eslint-cli.svg)](https://david-dm.org/eslint/eslint-cli)
 
 The local [ESLint] executor.
 
@@ -49,7 +49,7 @@ That's all. Enjoy!
 
 ## 📰 Change logs
 
-- See [GitHub releases](https://github.com/mysticatea/eslint-cli/releases)
+- See [GitHub releases](https://github.com/eslint/eslint-cli/releases)
 
 ## 🍻 Contributing
 
