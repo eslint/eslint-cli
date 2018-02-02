@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mysticatea/eslint-cli.git"
+    "url": "git+https://github.com/eslint/eslint-cli.git"
   },
   "keywords": [
     "eslint",
@@ -36,7 +36,7 @@
   "author": "Toru Nagashima",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mysticatea/eslint-cli/issues"
+    "url": "https://github.com/eslint/eslint-cli/issues"
   },
-  "homepage": "https://github.com/mysticatea/eslint-cli#readme"
+  "homepage": "https://github.com/eslint/eslint-cli#readme"
 }
