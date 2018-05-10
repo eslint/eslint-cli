@@ -18,7 +18,7 @@ debug("ROOT", cwd);
 
 const binPath = require("../lib/get-local-eslint")(cwd) || require("../lib/get-bin-eslint-js")(cwd);
 
-if (binPath != null) {
+if (binPath !== null) {
     require(binPath);
 } else {
     // eslint-disable-next-line no-console
