@@ -5,6 +5,8 @@
  */
 "use strict"
 
+const spawnSync = require("child_process").spawnSync
+
 const debug = require("debug")("eslint-cli")
 const debugMode = process.argv.indexOf("--debug") !== -1
 const cwd = process.cwd()
@@ -16,7 +18,13 @@ if (debugMode) {
 debug("START", process.argv)
 debug("ROOT", cwd)
 
-const binPath = require("../lib/get-local-eslint")(cwd) || require("../lib/get-bin-eslint-js")(cwd)
+const yarnGlobalDir = spawnSync("yarn", ["global", "dir"])
+
+const binPath =
+      require("../lib/get-local-eslint")(cwd) ||
+      require("../lib/get-bin-eslint-js")(cwd) ||
+      (yarnGlobalDir.stdout &&
+       require("../lib/get-local-eslint")(yarnGlobalDir.stdout.toString().trim()))
 if (binPath != null) {
     require(binPath)
 }
