@@ -10,7 +10,6 @@ const spawnSync = require("child_process").spawnSync
 
 const debug = require("debug")("eslint-cli")
 const debugMode = process.argv.indexOf("--debug") !== -1
-const useGlobalFallback = true;
 const cwd = process.cwd()
 
 if (debugMode) {
@@ -25,10 +24,12 @@ const binPath = require("../lib/get-local-eslint")(cwd) || require("../lib/get-b
 if (binPath != null) {
     require(binPath)
 }
-else if (useGlobalFallback) {
+else if (process.argv.includes("--use-global-fallback")) {
     try {
         const yarnGlobalDir = spawnSync("yarn", ["global", "dir"])
         if (yarnGlobalDir.stdout) {
+            // eslint do not accept --use-global-fallback
+            process.argv.splice(process.argv.indexOf("--use-global-fallback"), 1)
             require(path.resolve(
                 yarnGlobalDir.stdout.toString().trim(),
                 "node_modules", "eslint", "bin", "eslint.js"))
