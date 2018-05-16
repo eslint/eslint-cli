@@ -1,3 +1,4 @@
 {
-    "extends": ["mysticatea", "mysticatea/node"]
+    "extends": ["eslint", "plugin:node/recommended"],
+    "plugins": ["node"]
 }

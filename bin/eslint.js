@@ -3,54 +3,52 @@
  * @author Toru Nagashima
  * See LICENSE file in root directory for full license.
  */
-"use strict"
+"use strict";
 
-const path = require("path")
-const spawnSync = require("child_process").spawnSync
+const path = require("path");
+const spawnSync = require("child_process").spawnSync;
 
-const debug = require("debug")("eslint-cli")
-const debugMode = process.argv.indexOf("--debug") !== -1
-const cwd = process.cwd()
+const debug = require("debug")("eslint-cli");
+const debugMode = process.argv.indexOf("--debug") !== -1;
+const cwd = process.cwd();
 
 if (debugMode) {
-    require("debug").enable("eslint-cli")
+    require("debug").enable("eslint-cli");
 }
 
-debug("START", process.argv)
-debug("ROOT", cwd)
+debug("START", process.argv);
+debug("ROOT", cwd);
 
-const binPath = require("../lib/get-local-eslint")(cwd) || require("../lib/get-bin-eslint-js")(cwd)
+const binPath = require("../lib/get-local-eslint")(cwd) || require("../lib/get-bin-eslint-js")(cwd);
 
-if (binPath != null) {
-    require(binPath)
-}
-else if (process.argv.includes("--use-global-fallback")) {
+if (binPath !== null) {
+    require(binPath);
+} else if (process.argv.includes("--use-global-fallback")) {
     try {
-        const yarnGlobalDir = spawnSync("yarn", ["global", "dir"])
+        const yarnGlobalDir = spawnSync("yarn", ["global", "dir"]);
+
         if (yarnGlobalDir.stdout) {
             // eslint do not accept --use-global-fallback
-            process.argv.splice(process.argv.indexOf("--use-global-fallback"), 1)
+            process.argv.splice(process.argv.indexOf("--use-global-fallback"), 1);
             require(path.resolve(
                 yarnGlobalDir.stdout.toString().trim(),
-                "node_modules", "eslint", "bin", "eslint.js"))
+                "node_modules", "eslint", "bin", "eslint.js"));
         }
-    }
-    catch (err) {
+    } catch (err) {
         if ((err && err.code) !== "MODULE_NOT_FOUND") {
-            throw err
+            throw err;
         }
         // eslint-disable-next-line no-console
         console.error(`
 Could not find local and global ESLint.
 Please install ESLint by 'npm install --save-dev eslint'.
-`)
+`);
     }
-}
-else {
-    //eslint-disable-next-line no-console
+} else {
+    // eslint-disable-next-line no-console
     console.error(`
 Could not find local ESLint.
 Please install ESLint by 'npm install --save-dev eslint'.
-`)
-    process.exitCode = 1
+`);
+    process.exitCode = 1;
 }
