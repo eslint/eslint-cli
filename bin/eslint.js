@@ -5,9 +5,6 @@
  */
 "use strict";
 
-const path = require("path");
-const spawnSync = require("child_process").spawnSync;
-
 const debug = require("debug")("eslint-cli");
 const debugMode = process.argv.indexOf("--debug") !== -1;
 const cwd = process.cwd();
@@ -25,15 +22,10 @@ if (binPath !== null) {
     require(binPath);
 } else if (process.argv.includes("--use-global-fallback")) {
     try {
-        const yarnGlobalDir = spawnSync("yarn", ["global", "dir"]);
-
-        if (yarnGlobalDir.stdout) {
-            // eslint do not accept --use-global-fallback
-            process.argv.splice(process.argv.indexOf("--use-global-fallback"), 1);
-            require(path.resolve(
-                yarnGlobalDir.stdout.toString().trim(),
-                "node_modules", "eslint", "bin", "eslint.js"));
-        }
+        // eslint do not accept --use-global-fallback
+        process.argv.splice(process.argv.indexOf("--use-global-fallback"), 1);
+        // eslint-disable-next-line node/no-unpublished-require
+        require("eslint/bin/eslint");
     } catch (err) {
         if ((err && err.code) !== "MODULE_NOT_FOUND") {
             throw err;
