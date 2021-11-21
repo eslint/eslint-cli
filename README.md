@@ -1,3 +1,12 @@
+:warning: This package is no longer necessary. Use the built-in [`npx`](https://docs.npmjs.com/cli/v8/commands/npx) command instead.
+
+```sh
+npm install --save-dev eslint
+npx eslint src
+```
+
+---
+
 # eslint-cli
 
 [![npm version](https://img.shields.io/npm/v/eslint-cli.svg)](https://www.npmjs.com/package/eslint-cli)
